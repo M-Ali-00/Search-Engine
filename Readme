@@ -1,0 +1,49 @@
+# 🧠 Member 3: Search Intelligence & Vector Database
+
+## Overview
+This module acts as the "Brain" of the project. It handles:
+1.  **Ingestion:** Receiving clean data from Member 2.
+2.  **Chunking:** Breaking long text into smaller, digestible pieces.
+3.  **Vectorization:** Turning text into numerical embeddings using `sentence-transformers`.
+4.  **Storage:** Saving these vectors into a persistent `ChromaDB` database.
+5.  **Search:** Retrieving the most relevant text chunks based on a user's query.
+
+## 📂 File Structure
+* `ingest.py`: The entry point for saving data. (Used by Member 2's pipeline).
+* `search.py`: The entry point for finding data. (Used by Member 4's API).
+* `database.py`: Manages the connection to ChromaDB.
+* `embedder.py`: Handles the AI conversion of text to numbers.
+* `chunker.py`: Logic for splitting large pages into smaller segments.
+* `test.py`: A script to manually verify that ingestion and search are working.
+
+## 🚀 Setup & Installation
+
+1.  **Install Requirements:**
+    You will need `chromadb` and `sentence-transformers`.
+    ```bash
+    pip install chromadb sentence-transformers
+    ```
+
+2.  **First Run (Ingest Data):**
+    Uncomment the ingestion lines in `test.py` to add your first data points to the local database.
+
+3.  **Verify (Search):**
+    Run the test script to see if the database returns relevant results.
+    ```bash
+    python test.py
+    ```
+
+## 🔌 API Usage (For Teammates)
+
+### For Member 2 (The Filter)
+To send data to the Brain, import `ingest_page` and pass a dictionary:
+```python
+from ingest import ingest_page
+
+data = {
+    "url": "[https://example.com](https://example.com)",
+    "title": "Example Page",
+    "text": "Full page text goes here..."
+}
+
+ingest_page(data)
