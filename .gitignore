@@ -3,3 +3,4 @@ vectordb/
 *.pyc
 .env
 .DS_Store
+test.py
