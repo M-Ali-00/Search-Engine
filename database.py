@@ -14,5 +14,5 @@ def add_chunk(text, url, title):
         metadatas=[{"url": url, "title": title}],
         ids=[f"{url}_{hash(text)}"]
     )
-
+    print(f"✅ [Brain] Ingested chunk from: {title} ({url})")
     
