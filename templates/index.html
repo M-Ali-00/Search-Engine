@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ASTREA - Search engine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <img src="{{ url_for('static', filename='images/ASTRA.png') }}" alt="Astra Logo" class="logo">
+    <div class ="searchbar">
+        <div class="box">
+    <input id="userinput" type="text" placeholder="search">
+    <button id="send" onclick="searchquery()">Send</button>
+    </div>
+    </div>
+
+    <div class="results">
+        <div class="grid">
+    <p id="results">results here!</p>
+    </div>
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
